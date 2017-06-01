@@ -19,7 +19,23 @@
 <script>
   import Header from './components/header/header';
 
+  const ERR_OK = 0;
+
   export default {
+    data: function () {
+      return {
+        seller: {}
+      };
+    },
+    created: function () {
+      this.$http.get('/api/seller').then(function (response) {
+        response = response.body;
+        if (ERR_OK === response.errno) {
+          this.seller = response.data;
+          console.log(this.seller);
+        }
+      });
+    },
     components: {
       'v-header': Header
     }
