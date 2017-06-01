@@ -1,6 +1,6 @@
 <template>
 	<div>
-		Im goods!
+		Im ratings!
 	</div>
 </template>
 
