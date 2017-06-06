@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="tab">
       <div class="tab-item">
         <router-link to="/goods">商品</router-link>
@@ -32,7 +32,6 @@
         response = response.body;
         if (ERR_OK === response.errno) {
           this.seller = response.data;
-          console.log(this.seller);
         }
       });
     },
