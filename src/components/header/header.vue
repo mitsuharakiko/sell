@@ -17,9 +17,18 @@
           <span class="text">{{ seller.supports[0].description }}</span>
         </div>
       </div>
+      <div v-if="seller.supports" class="support-count">
+      	<span class="count">{{ seller.supports.length }}个</span>
+      	<i class="icon-keyboard_arrow_right"></i>
+      </div>
     </div>
     <div class="bulletin-wrapper">
+    	<span class="bulletin-title"></span><span class="bulletin-text">{{ seller.bulletin }}</span>
+    	<i class="icon-keyboard_arrow_right"></i>
+    </div>
 
+    <div class="background">
+    	<img :src="seller.avatar" width="100%" height="100%">
     </div>
   </div>
 </template>
@@ -35,14 +44,19 @@
 
 <style lang="scss" scoped>
 @import "../../common/css/mixin";
+@import "../../common/css/icon.css";
+
+
 
 .header {
   color: #fff;
-  background: #000;
+  position: relative;
+  background: rgba(7,17,27,0.5);
 
   .content-wrapper {
     padding: 24px 12px 18px 24px;
     font-size: 0;
+    position: relative;
     .avatar {
       display: inline-block;
       vertical-align: top;
@@ -118,10 +132,80 @@
           margin-left: 4px;
           font-size: 10px;
           font-weight: 200;
-          line-height: 12px;
+          line-height: 10px;
         }
       }
     }
+
+    .support-count {
+    	position: absolute;
+    	right: 12px;
+    	bottom: 14px;
+    	padding: 0 8px;
+    	height: 24px;
+    	line-height: 24px;
+    	border-radius: 14px;
+    	background: rgba(0,0,0,0.2);
+    	text-align: center;
+
+    	.count {
+    		vertical-align: top;
+    		font-size: 10px;
+    	}
+    	.icon-keyboard_arrow_right {
+    		line-height: 24px;
+    		margin-left: 2px;
+    		font-size: 10px;
+    	}
+    }
+  }
+
+  .bulletin-wrapper {
+  	padding: 0 22px 0 12px;
+  	height: 28px;
+  	line-height: 28px;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	position: relative;
+  	background: rgba(7,17,27,0.2);
+
+  	.bulletin-title {
+  		display: inline-block;
+  		width: 22px;
+  		height: 12px;
+  		@include bg_image ("bulletin");
+  		background-size: 22px 12px;
+  		background-repeat: no-repeat;
+  		vertical-align: top;
+  		margin-top: 7px;
+  	}
+
+  	.bulletin-text {
+  		margin-left: 4px;
+  		margin-right: 4px;
+  		font-size: 10px;
+  		font-weight: 200;
+  		vertical-align: top;
+  	}
+
+  	.icon-keyboard_arrow_right {
+		margin-left: 2px;
+		font-size: 10px;
+		position:absolute;
+		right: 12px;
+		top: 8px;
+	}
+  }
+
+  .background {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+  	z-index: -1;
+  	filter: blur(10px);
   }
 }
 
