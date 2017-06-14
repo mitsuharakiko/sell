@@ -28,7 +28,7 @@
 				}
 
 				if (hasDecimal) {
-					no-repeat.push(CLS_HALF);
+					result.push(CLS_HALF);
 				}
 
 				while( result.length < LENGTH ){
@@ -38,7 +38,7 @@
 				return result;
 			}
 		}
-	};	
+	};
 </script>
 
 <style lang="scss" scoped>
@@ -46,7 +46,7 @@
 
 .star{
 	font-size: 0;
-	
+
 	.star-item {
 		display: inline-block;
 		background-repeat: no-repeat;
@@ -85,7 +85,7 @@
 			&:last-child {
 				margin-right: 0;
 			}
-			
+
 			&.on {
 				@include bg_image ("star36_on");
 			}
@@ -109,7 +109,7 @@
 			&:last-child {
 				margin-right: 0;
 			}
-			
+
 			&.on {
 				@include bg_image ("star24_on");
 			}
