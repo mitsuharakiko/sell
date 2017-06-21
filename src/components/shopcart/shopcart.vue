@@ -28,12 +28,7 @@ export default {
 		selectFoods: {
 			type: Array,
 			default: function() {
-				return [
-					{
-						price: 0,
-						count: 0
-					}
-				];
+				return [];
 			}
 		},
 		deliveryPrice : {
